@@ -1,13 +1,10 @@
 var mongoose = require("mongoose");
 
-var campgroundSchema = new mongoose.Schema({
+var DoctorSchema = new mongoose.Schema({
    name: String,
-   price: Number,
-   Disease: String,
+   special:String,
    description: String,
-   Age: Number,
-   Disease_score: Number,
-
+clinicno:Number,
    patient: {
       id: {
          type: mongoose.Schema.Types.ObjectId,
@@ -23,4 +20,4 @@ var campgroundSchema = new mongoose.Schema({
    ]
 });
 
-module.exports = mongoose.model("Campground", campgroundSchema);
+module.exports = mongoose.model("Doctor", DoctorSchema);

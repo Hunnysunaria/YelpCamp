@@ -14,9 +14,10 @@ var express     = require("express"),
 //requiring routes
 var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
-    indexRoutes      = require("./routes/index")
+    indexRoutes      = require("./routes/index"),
+    doctorRoutes=  require("./routes/doctor")
     
-    mongoose.connect("mongodb://localhost:27017/Yelpcamp_v8",{useNewUrlParser:true,
+    mongoose.connect("mongodb://localhost:27017/Appointment",{useNewUrlParser:true,
     useUnifiedTopology: true});
 
 
@@ -51,11 +52,10 @@ app.use(function(req, res, next){
    next();
 });
 
-app.get("/Doctor",function(req,res){
-    res.send("It's a Doctor Page");
-});
+
 
 app.use("/", indexRoutes);
+app.use("/doctor",doctorRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
